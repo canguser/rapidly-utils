@@ -1,3 +1,3 @@
-export function isBasicData(obj) {
-    return ['string', 'number', 'boolean', 'function'].includes(typeof obj) || obj instanceof Date || obj == null;
+export function isBasicData(data: any): boolean {
+    return ['string', 'number', 'boolean', 'function'].includes(typeof data) || data instanceof Date || data == null;
 }

@@ -1,13 +1,20 @@
+import { OptionalArray } from './types/types';
+
 /**
  * Parse the property name to name array.
- *  eg:
- *      'a.b.c.d.e.t' => [a,b,c,d,e,t]
  * @param keyChain
- * @returns {*}
  */
-export function parseKeyChain(keyChain) {
+export function parseKeyChain(keyChain: OptionalArray<PropertyKey>): PropertyKey[] {
     if (typeof keyChain === 'string') {
-        keyChain = keyChain.split('.')
+        keyChain = keyChain.split('.');
     }
-    return keyChain.filter((k) => typeof k === 'string').map((k) => k.replace(/ /g, ''))
+    if (!Array.isArray(keyChain)) {
+        return [keyChain];
+    }
+    return keyChain.map((k) => {
+        if (typeof k === 'string') {
+            return k.replace(/ /g, '');
+        }
+        return k;
+    });
 }

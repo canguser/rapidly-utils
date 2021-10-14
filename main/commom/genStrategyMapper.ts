@@ -1,4 +1,4 @@
-export function genStrategyMapper(mapper = {}, defaultValue, ignoreCase = false) {
+export function genStrategyMapper<T extends object, V = any>(mapper: T, defaultValue: V = undefined, ignoreCase = false): T {
     return new Proxy({ ...mapper }, {
         get(target, p, receiver) {
             if (Object.getOwnPropertyNames(target)

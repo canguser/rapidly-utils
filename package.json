@@ -10,6 +10,9 @@
     "tsc:build": "tsc -b tsconfig-cjs.json tsconfig.json",
     "tsc:watch": "tsc -b tsconfig-cjs.json tsconfig.json --watch",
     "tsc:clean": "tsc -b tsconfig-cjs.json tsconfig.json --clean",
+    "gen-dts": "npx tsc main/index.ts --declaration --emitDeclarationOnly --target ES2020 --moduleResolution node --outDir types",
+    "gen-docs": "typedoc --out docs main/**/*.ts",
+    "gen-dts:docs": "yarn run gen-dts && yarn run gen-docs",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
@@ -29,6 +32,6 @@
     "jest": "^27.1.0",
     "ts-jest": "^27.0.5",
     "typedoc": "^0.21.9",
-    "typedoc-plugin-markdown": "^3.10.4"
+    "typedoc-plugin-markdown": "3.10.4"
   }
 }
