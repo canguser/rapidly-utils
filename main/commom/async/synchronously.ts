@@ -1,22 +1,35 @@
-const syncQueueMap = new Map();
+const syncQueueMap = new Map<any, Task[]>();
+type Method = (...args: any[]) => any
+type Task = {
+    task: Method,
+    context?: any,
+    args?: any | any[]
+}
 
-async function startExecSyncQueue(queue, ...args) {
+type TaskLike = Method | Task
+
+function isTask(task: any) {
+    return typeof task === 'function' || typeof task.task === 'function';
+}
+
+async function startExecSyncQueue(queue: Task[]) {
     let result;
     await Promise.resolve();
     for (let task = queue.shift(); queue.length >= 0 && task; task = queue.shift()) {
-        if (typeof task === 'function') {
-            result = await task(...args);
+        if (typeof task.task === 'function') {
+            const args = Array.isArray(task.args) ? task.args : [task.args];
+            result = await task.task.apply(task.context, args);
         }
     }
     return result;
 }
 
-function waitTaskExecute(task) {
+function waitTaskExecute(task: Method): { promise: Promise<any>, task: Method } {
     let resultTask;
     const pr = new Promise(
         resolve => {
-            resultTask = async (...args) => {
-                const result = await task(...args);
+            resultTask = async function(...args) {
+                const result = await task.apply(this, args);
                 resolve(result);
                 return result;
             };
@@ -28,15 +41,33 @@ function waitTaskExecute(task) {
     };
 }
 
-export async function synchronously(identity: any, ...tasks: ((...args: any[]) => any)[]) {
+export async function synchronously(identity: any, ...tasks: TaskLike[]) {
 
     const existQueue = syncQueueMap.get(identity) || [];
 
     const hasTasks = existQueue.length > 0;
 
-    const taskMappings = tasks.filter(t => typeof t === 'function').map(t => waitTaskExecute(t));
+    const taskMappings = tasks.filter(t => isTask(t))
+        .map<Task>(t => {
+            if (typeof t === 'function') {
+                return {
+                    task: t
+                };
+            }
+            return t;
+        })
+        .map(t => {
+            const { task, promise } = waitTaskExecute(t.task);
+            return {
+                task: {
+                    ...t,
+                    task
+                },
+                promise
+            };
+        });
 
-    existQueue.push(...taskMappings.map(({ task }) => task));
+    existQueue.push(...taskMappings.map<Task>(({ task }) => task));
 
     if (!hasTasks) {
         syncQueueMap.set(identity, existQueue);

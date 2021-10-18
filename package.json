@@ -1,15 +1,16 @@
 {
   "name": "@rapidly/utils",
-  "version": "1.0.1-beta",
+  "version": "1.0.1-beta1",
   "main": "lib/index.js",
   "license": "MIT",
   "scripts": {
     "publish-pacakge": "yarn run build && yarn publish --access public --tag latest --new-version $npm_package_version",
+    "publish-beta-pacakge": "yarn run build && yarn publish --access public --tag beta --new-version $npm_package_version",
     "build": "yarn run tsc:rebuild",
     "tsc:rebuild": "yarn run tsc:clean && yarn run tsc:build",
     "tsc:build": "tsc -b tsconfig-cjs.json tsconfig.json",
     "tsc:watch": "tsc -b tsconfig-cjs.json tsconfig.json --watch",
-    "tsc:clean": "tsc -b tsconfig-cjs.json tsconfig.json --clean",
+    "tsc:clean": "rimraf ./es && rimraf ./lib",
     "gen-dts": "npx tsc main/index.ts --declaration --emitDeclarationOnly --target ES2020 --moduleResolution node --outDir types",
     "gen-docs": "typedoc --out docs main/**/*.ts",
     "gen-dts:docs": "yarn run gen-dts && yarn run gen-docs",
