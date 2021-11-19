@@ -33,11 +33,15 @@ function getMinInterval(part: string, maxInterval: number = Infinity) {
     }, { minInterval: undefined, last: undefined }).minInterval;
     return Math.min(...[
         numberMinInterval,
-        ...notNumberParts.map(p => getMinInterval(p))
+        ...notNumberParts.filter(p => p !== part).map(p => getMinInterval(p))
     ]);
 }
 
 export function isLessThan(cronExp: string, minute: number): boolean {
     const [s, m, h, d] = cronExp.split(/[\s\t\n\r]/);
-    return minute > 1 && getMinInterval(m) < minute;
+    const minInterval = getMinInterval(m);
+    if (isNaN(minInterval)) {
+        throw new Error('Not a valid cron expression.');
+    }
+    return minute > 1 && minInterval < minute;
 }
