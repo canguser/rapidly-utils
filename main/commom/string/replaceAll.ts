@@ -1,4 +1,4 @@
-import { join } from '../../connection/join';
+import { join } from '../../array/join';
 
 export function replaceAll(
     str: string,

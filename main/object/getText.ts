@@ -1,4 +1,4 @@
-import { flat } from '../connection/flat';
+import { flat } from '../array/flat';
 
 export function getText(_self, deep) {
     deep == null && (deep = 10);

@@ -1,5 +1,5 @@
 import { getBindingExpressions } from './getBindingExpressions';
-import { join } from '../../connection/join';
+import { join } from '../../array/join';
 
 export interface TemplateOptions {
     suffix?: string;

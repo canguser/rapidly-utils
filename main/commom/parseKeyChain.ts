@@ -1,6 +1,6 @@
 import { OptionalArray } from './types/types';
 import { getBindingExpressions } from './string/getBindingExpressions';
-import { flat } from '../connection/flat';
+import { flat } from '../array/flat';
 
 function parseBracket(str) {
     const { raws, expressions } = getBindingExpressions(str, '[', ']');
