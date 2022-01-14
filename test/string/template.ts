@@ -1,4 +1,4 @@
-import { template } from '../../../main/commom/string/template';
+import { template } from '../../main/commom/string/template';
 
 describe('test string template func', () => {
     it('test string template func', () => {

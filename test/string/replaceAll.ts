@@ -1,4 +1,4 @@
-import { replaceAll } from '../../../main/commom/string/replaceAll';
+import { replaceAll } from '../../main/commom/string/replaceAll';
 
 describe('test replaceAll', () => {
     it('test replaceAll', () => {
