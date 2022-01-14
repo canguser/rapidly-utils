@@ -4,9 +4,10 @@ import { parseKeyChain } from '../commom/parseKeyChain'
  * Get the object property, it's support to using link property name like: a.b.c.d.e.f
  * @param _self
  * @param propertyName
+ * @param defaultValue
  * @returns {*}
  */
-export function getProperty(_self, propertyName) {
+export function getProperty<T = any>(_self, propertyName: any[] | string, defaultValue?: any): T {
     if (_self == null) {
         return undefined
     }

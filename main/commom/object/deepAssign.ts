@@ -1,28 +1,11 @@
 import { isBasicData } from '../isBasicData';
+import { getKeys } from './getKeys';
 
 export interface DeepAssignOptions {
     ignoreUndefined?: boolean;
     ignoreNull?: boolean;
     useSymbol?: boolean;
     useNonenumerable?: boolean;
-}
-
-function _getKeys(obj: any, useSymbol: boolean, useNonenumerable: boolean): any[] {
-    const keys: any[] = [];
-    if (useSymbol) {
-        Object.getOwnPropertySymbols(obj).forEach((key) => {
-            keys.push(key);
-        });
-    }
-    if (useNonenumerable) {
-        Object.getOwnPropertyNames(obj).forEach((key) => {
-            if (!keys.includes(key)) {
-                keys.push(key);
-            }
-        });
-        return keys;
-    }
-    return [...keys, ...Object.keys(obj)];
 }
 
 function _deepAssign<T extends object, F extends object>(
@@ -33,7 +16,7 @@ function _deepAssign<T extends object, F extends object>(
 ): T & F {
     const { ignoreUndefined = false, ignoreNull = false, useSymbol = false, useNonenumerable = false } = options || {};
 
-    for (let key of _getKeys(origin, useSymbol, useNonenumerable)) {
+    for (let key of getKeys(origin, useSymbol, useNonenumerable)) {
         const _value = origin[key];
         if (ignoreUndefined && _value === undefined) {
             continue;

@@ -8,7 +8,7 @@ import { parseKeyChain } from '../commom/parseKeyChain'
  * @param value
  * @returns {*}
  */
-export function setProperty(_self, propertyName, value) {
+export function setProperty(_self, propertyName: any[] | string, value: any): boolean {
     propertyName = parseKeyChain(propertyName)
     if (propertyName.length === 0) {
         return true
