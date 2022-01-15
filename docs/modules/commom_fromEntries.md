@@ -12,13 +12,19 @@
 
 ### fromEntries
 
-▸ **fromEntries**(`entries`): `Object`
+▸ **fromEntries**<`T`\>(`entries`): `Object`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `any` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `entries` | `any` |
+| `entries` | readonly [`PropertyKey`, `T`][] |
 
 #### Returns
 
@@ -26,4 +32,4 @@
 
 #### Defined in
 
-[commom/fromEntries.ts:1](https://github.com/canguser/rapidly-utils/blob/966e48c/main/commom/fromEntries.ts#L1)
+[commom/fromEntries.ts:1](https://github.com/canguser/rapidly-utils/blob/d21ec0d/main/commom/fromEntries.ts#L1)

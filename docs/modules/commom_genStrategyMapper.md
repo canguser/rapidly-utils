@@ -12,20 +12,27 @@
 
 ### genStrategyMapper
 
-▸ **genStrategyMapper**(`mapper?`, `defaultValue`, `ignoreCase?`): `Object`
+▸ **genStrategyMapper**<`T`, `V`\>(`mapper`, `defaultValue?`, `ignoreCase?`): `T`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `object` |
+| `V` | `any` |
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `mapper` | `Object` | `{}` |
-| `defaultValue` | `any` | `undefined` |
+| `mapper` | `T` | `undefined` |
+| `defaultValue` | `V` | `undefined` |
 | `ignoreCase` | `boolean` | `false` |
 
 #### Returns
 
-`Object`
+`T`
 
 #### Defined in
 
-[commom/genStrategyMapper.ts:1](https://github.com/canguser/rapidly-utils/blob/966e48c/main/commom/genStrategyMapper.ts#L1)
+[commom/genStrategyMapper.ts:1](https://github.com/canguser/rapidly-utils/blob/d21ec0d/main/commom/genStrategyMapper.ts#L1)

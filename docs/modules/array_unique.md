@@ -1,12 +1,12 @@
-[@rapidly/utils](../README.md) / [Modules](../modules.md) / connection/unique
+[@rapidly/utils](../README.md) / [Modules](../modules.md) / array/unique
 
-# Module: connection/unique
+# Module: array/unique
 
 ## Table of contents
 
 ### Functions
 
-- [unique](connection_unique.md#unique)
+- [unique](array_unique.md#unique)
 
 ## Functions
 
@@ -32,4 +32,4 @@
 
 #### Defined in
 
-[connection/unique.ts:3](https://github.com/canguser/rapidly-utils/blob/966e48c/main/connection/unique.ts#L3)
+[array/unique.ts:3](https://github.com/canguser/rapidly-utils/blob/d21ec0d/main/array/unique.ts#L3)

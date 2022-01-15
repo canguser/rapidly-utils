@@ -1,12 +1,12 @@
-[@rapidly/utils](../README.md) / [Modules](../modules.md) / connection/groupBy
+[@rapidly/utils](../README.md) / [Modules](../modules.md) / array/groupBy
 
-# Module: connection/groupBy
+# Module: array/groupBy
 
 ## Table of contents
 
 ### Functions
 
-- [groupBy](connection_groupBy.md#groupby)
+- [groupBy](array_groupBy.md#groupby)
 
 ## Functions
 
@@ -33,4 +33,4 @@
 
 #### Defined in
 
-[connection/groupBy.ts:3](https://github.com/canguser/rapidly-utils/blob/966e48c/main/connection/groupBy.ts#L3)
+[array/groupBy.ts:3](https://github.com/canguser/rapidly-utils/blob/d21ec0d/main/array/groupBy.ts#L3)

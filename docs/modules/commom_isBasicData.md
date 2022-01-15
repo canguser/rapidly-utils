@@ -12,13 +12,13 @@
 
 ### isBasicData
 
-▸ **isBasicData**(`obj`): `boolean`
+▸ **isBasicData**(`data`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `obj` | `any` |
+| `data` | `any` |
 
 #### Returns
 
@@ -26,4 +26,4 @@
 
 #### Defined in
 
-[commom/isBasicData.ts:1](https://github.com/canguser/rapidly-utils/blob/966e48c/main/commom/isBasicData.ts#L1)
+[commom/isBasicData.ts:1](https://github.com/canguser/rapidly-utils/blob/d21ec0d/main/commom/isBasicData.ts#L1)

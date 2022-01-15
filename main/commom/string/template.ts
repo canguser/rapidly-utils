@@ -1,5 +1,5 @@
 import { getBindingExpressions } from './getBindingExpressions';
-import { join } from '../../array/join';
+import { joinWith } from '../../array/joinWith';
 
 export interface TemplateOptions {
     suffix?: string;
@@ -38,7 +38,7 @@ export function template(_self: string, context: object, options?: TemplateOptio
     if (expressions.length === 0) {
         return _self;
     }
-    return join(raws, (index) => {
+    return joinWith(raws, (index) => {
         const expression = expressions[index] || '';
         if (withFunction) {
             return _execExpression(expression, context) || '';

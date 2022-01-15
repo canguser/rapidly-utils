@@ -12,7 +12,7 @@
 
 ### setProperty
 
-▸ **setProperty**(`_self`, `propertyName`, `value`): `any`
+▸ **setProperty**(`_self`, `propertyName`, `value`): `boolean`
 
 Set the object property, it's support to using link property name like: a.b.c.d.e.f
 
@@ -21,13 +21,13 @@ Set the object property, it's support to using link property name like: a.b.c.d.
 | Name | Type |
 | :------ | :------ |
 | `_self` | `any` |
-| `propertyName` | `any` |
+| `propertyName` | `any`[] \| `string` |
 | `value` | `any` |
 
 #### Returns
 
-`any`
+`boolean`
 
 #### Defined in
 
-[object/setProperty.ts:11](https://github.com/canguser/rapidly-utils/blob/966e48c/main/object/setProperty.ts#L11)
+[object/setProperty.ts:11](https://github.com/canguser/rapidly-utils/blob/d21ec0d/main/object/setProperty.ts#L11)

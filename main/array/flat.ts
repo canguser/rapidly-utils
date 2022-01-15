@@ -1,21 +1,12 @@
-export function flat(array, deep = Infinity) {
-
-    const flat = (Array.prototype as any).flat || function(deep = Infinity) {
-        if (deep < 1) {
-            return this;
+export function flat(array, deep = 1) {
+    if (deep == 0) {
+        return array;
+    }
+    return array.reduce((acc, val) => {
+        if (Array.isArray(val)) {
+            return acc.concat(flat(val, deep - 1));
+        } else {
+            return acc.concat(val);
         }
-        let result = [];
-        const nextDeep = deep - 1;
-        this.forEach(a => {
-            if (a instanceof Array) {
-                result = result.concat(flat.call(a, nextDeep));
-            } else {
-                result.push(a);
-            }
-        });
-        return result;
-    };
-
-    return flat.call(array, deep);
-
+    }, []);
 }

@@ -1,6 +1,6 @@
 const _join = Array.prototype.join;
 
-export function join<T>(_self: T[], separator: string | ((arrIndex?: number, arr?: T[]) => any)) {
+export function joinWith<T>(_self: T[], separator: string | ((arrIndex?: number, arr?: T[]) => any)) {
     if (typeof separator === 'function') {
         let resultStr = '';
         _self.forEach((item, index) => {

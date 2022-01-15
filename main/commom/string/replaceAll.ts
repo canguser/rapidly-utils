@@ -1,4 +1,4 @@
-import { join } from '../../array/join';
+import { joinWith } from '../../array/joinWith';
 
 export function replaceAll(
     str: string,

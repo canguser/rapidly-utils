@@ -18,7 +18,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `key` | `any` |
+| `key` | `PropertyKey` |
 
 #### Returns
 
@@ -26,4 +26,4 @@
 
 #### Defined in
 
-[commom/isNumberProperty.ts:1](https://github.com/canguser/rapidly-utils/blob/966e48c/main/commom/isNumberProperty.ts#L1)
+[commom/isNumberProperty.ts:1](https://github.com/canguser/rapidly-utils/blob/d21ec0d/main/commom/isNumberProperty.ts#L1)

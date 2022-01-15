@@ -1,26 +1,25 @@
 {
   "name": "@rapidly/utils",
-  "version": "2.0.0-beta1",
+  "version": "2.0.0-beta2",
   "main": "lib/index.js",
   "license": "MIT",
   "scripts": {
-    "publish-pacakge": "yarn run test && yarn run build && yarn publish --access public --tag latest --new-version $npm_package_version",
-    "publish-beta-pacakge": "yarn run test && yarn run build && yarn publish --access public --tag beta --new-version $npm_package_version",
+    "publish-pacakge": "yarn run test && yarn run build && yarn run gen-docs && yarn publish --access public --tag latest --new-version $npm_package_version",
+    "publish-beta-pacakge": "yarn run test && yarn run build && yarn run gen-docs && yarn publish --access public --tag beta --new-version $npm_package_version",
     "build": "yarn run tsc:rebuild",
     "tsc:rebuild": "yarn run tsc:clean && yarn run tsc:build",
     "tsc:build": "tsc -b tsconfig-cjs.json tsconfig.json",
     "tsc:watch": "tsc -b tsconfig-cjs.json tsconfig.json --watch",
     "tsc:clean": "rimraf ./es && rimraf ./lib",
-    "gen-dts": "npx tsc main/index.ts --declaration --emitDeclarationOnly --target ES2020 --moduleResolution node --outDir types",
     "gen-docs": "typedoc --out docs main/**/*.ts",
-    "gen-dts:docs": "yarn run gen-dts && yarn run gen-docs",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
   "files": [
     "lib",
     "bin",
-    "types"
+    "types",
+    "docs"
   ],
   "dependencies": {
   },
