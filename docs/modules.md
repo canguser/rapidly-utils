@@ -7,6 +7,7 @@
 ### Modules
 
 - [array](modules/array.md)
+- [array/chunk](modules/array_chunk.md)
 - [array/contains](modules/array_contains.md)
 - [array/containsAny](modules/array_containsAny.md)
 - [array/flat](modules/array_flat.md)

@@ -28,4 +28,4 @@ Flattens an array.
 
 #### Defined in
 
-[array/flatten.ts:7](https://github.com/canguser/rapidly-utils/blob/d21ec0d/main/array/flatten.ts#L7)
+[array/flatten.ts:7](https://github.com/canguser/rapidly-utils/blob/43b641f/main/array/flatten.ts#L7)

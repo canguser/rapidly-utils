@@ -35,4 +35,4 @@ Get the item of the array from index (Can be negative).
 
 #### Defined in
 
-[array/index.ts:6](https://github.com/canguser/rapidly-utils/blob/d21ec0d/main/array/index.ts#L6)
+[array/index.ts:6](https://github.com/canguser/rapidly-utils/blob/43b641f/main/array/index.ts#L6)
