@@ -9,13 +9,13 @@ import { parseKeyChain } from '../commom/parseKeyChain'
  */
 export function getProperty<T = any>(_self, propertyName: any[] | string, defaultValue?: any): T {
     if (_self == null) {
-        return undefined
+        return defaultValue
     }
     propertyName = parseKeyChain(propertyName)
     if (propertyName.length === 1) {
-        return _self[propertyName[0]]
+        return _self[propertyName[0]] ?? defaultValue
     } else if (propertyName.length > 1) {
         return getProperty(_self[propertyName[0]], propertyName.splice(1))
     }
-    return undefined
+    return defaultValue
 }

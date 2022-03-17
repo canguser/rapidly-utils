@@ -24,7 +24,15 @@ console.log('Available files:');
 console.log(chunk(allTsFiles, 3).map((chunk) => chunk.map(c=>c.padEnd(maxLengthPath)).join('\t')).join('\r\n'));
 
 const inputLike = readlineSync.question('* TS Name: ', {required: true});
-const input = allTsFiles.find((file) => file.indexOf(inputLike) >= 0);
+const inputs = allTsFiles.filter((file) => file.indexOf(inputLike) >= 0);
+let input;
+if (inputs.length > 1) {
+    console.log('Keywords match more than one file.');
+    const inputIndex = readlineSync.keyInSelect(inputs, 'Please choose one:', {cancel: false});
+    input = inputs[inputIndex];
+} else {
+    input = inputs[0];
+}
 console.log('input: ', input);
 if (!input || !inputLike) {
     throw new Error('TS Name Not Found');
