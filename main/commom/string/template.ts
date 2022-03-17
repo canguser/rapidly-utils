@@ -1,5 +1,6 @@
 import { getBindingExpressions } from './getBindingExpressions';
 import { joinWith } from '../../array/joinWith';
+import { getProperty } from '../../object/getProperty';
 
 export interface TemplateOptions {
     suffix?: string;
@@ -43,6 +44,6 @@ export function template(_self: string, context: object, options?: TemplateOptio
         if (withFunction) {
             return _execExpression(expression, context) || '';
         }
-        return context[expression.trim()] || '';
+        return getProperty(context, expression) || '';
     });
 }
