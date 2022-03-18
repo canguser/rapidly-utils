@@ -21,22 +21,31 @@ function getAllTsFiles(dir) {
 const allTsFiles = getAllTsFiles('./main');
 const maxLengthPath = allTsFiles.reduce((max, path) => Math.max(max, path.length), 0);
 console.log('Available files:');
-console.log(chunk(allTsFiles, 3).map((chunk) => chunk.map(c=>c.padEnd(maxLengthPath)).join('\t')).join('\r\n'));
+console.log(
+    chunk(allTsFiles, 3)
+        .map((chunk) => chunk.map((c) => c.padEnd(maxLengthPath)).join('\t'))
+        .join('\r\n')
+);
 
-const inputLike = readlineSync.question('* TS Name: ', {required: true});
-const inputs = allTsFiles.filter((file) => file.indexOf(inputLike) >= 0);
-let input;
-if (inputs.length > 1) {
-    console.log('Keywords match more than one file.');
-    const inputIndex = readlineSync.keyInSelect(inputs, 'Please choose one:', {cancel: false});
-    input = inputs[inputIndex];
-} else {
-    input = inputs[0];
+let inputLike, input;
+while (!input || !inputLike) {
+    inputLike = readlineSync.question('* TS Name: ', { required: true });
+    const inputs = allTsFiles.filter((file) => file.toLowerCase().indexOf(inputLike.toLowerCase()) >= 0);
+    if (inputs.length > 1 && inputs.length <= 35) {
+        console.log('Keywords match more than one file.');
+        const inputIndex = readlineSync.keyInSelect(inputs, 'Please choose one:', { cancel: false });
+        input = inputs[inputIndex];
+    } else if (inputs.length > 35) {
+        console.log('Keywords are too simple, please try again.');
+        continue;
+    } else {
+        input = inputs[0];
+    }
+    if (!input || !inputLike) {
+        console.log('TS name input is not found. Please try again.');
+    }
 }
 console.log('input: ', input);
-if (!input || !inputLike) {
-    throw new Error('TS Name Not Found');
-}
 const options = ['amd', 'cjs', 'esm', 'iife', 'umd', 'system'];
 const modeIndex = readlineSync.keyInSelect(options, 'Mode: ', { defaultInput: 2, cancel: false });
 const mode = options[modeIndex];
