@@ -50,6 +50,12 @@ describe('test string template func', () => {
     it('should works for escaped code 4', function() {
         const str = 'hello {{!name}\\}, age {{!age}}';
         const result = template(str, { name: 'world', age: 18 }, { prefix: '{{!', suffix: '}}' });
-        expect(result).toBe('hello ');
+        expect(result).toBe('hello {{!name}\\}, age 18');
+    });
+
+    it('should using inside prefix and suffix', function() {
+        const str = 'hello {{name}}, age {{age}}';
+        const result = template(str, { name: 'world', age: 18 });
+        expect(result).toBe('hello {world}, age {18}');
     });
 });

@@ -6,13 +6,13 @@
 
 ### Functions
 
-- [containsAny](array_contains.md#containsany)
+- [contains](array_contains.md#contains)
 
 ## Functions
 
-### containsAny
+### contains
 
-▸ **containsAny**(`array`, ...`values`): `boolean`
+▸ **contains**(`array`, ...`values`): `boolean`
 
 #### Parameters
 
@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[array/contains.ts:1](https://github.com/canguser/rapidly-utils/blob/43b641f/main/array/contains.ts#L1)
+[array/contains.ts:1](https://github.com/canguser/rapidly-utils/blob/3c92917/main/array/contains.ts#L1)

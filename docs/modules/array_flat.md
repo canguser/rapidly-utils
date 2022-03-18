@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[array/flat.ts:1](https://github.com/canguser/rapidly-utils/blob/43b641f/main/array/flat.ts#L1)
+[array/flat.ts:1](https://github.com/canguser/rapidly-utils/blob/3c92917/main/array/flat.ts#L1)
