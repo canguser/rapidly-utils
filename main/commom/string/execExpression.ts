@@ -1,4 +1,4 @@
-export function execExpression(expression: string, context: object): string {
+export function execExpression<T = any>(expression: string, context: object): T {
     if (!expression || !expression.trim()) {
         return undefined;
     }

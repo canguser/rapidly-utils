@@ -31,4 +31,4 @@
 
 #### Defined in
 
-[array/padding.ts:17](https://github.com/canguser/rapidly-utils/blob/47e660a/main/array/padding.ts#L17)
+[array/padding.ts:17](https://github.com/canguser/rapidly-utils/blob/91471f2/main/array/padding.ts#L17)

@@ -37,4 +37,4 @@ Adds each item in the array between each item in the target array.
 
 #### Defined in
 
-[array/mix.ts:7](https://github.com/canguser/rapidly-utils/blob/47e660a/main/array/mix.ts#L7)
+[array/mix.ts:7](https://github.com/canguser/rapidly-utils/blob/91471f2/main/array/mix.ts#L7)

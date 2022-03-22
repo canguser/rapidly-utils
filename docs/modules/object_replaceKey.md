@@ -35,4 +35,4 @@
 
 #### Defined in
 
-[object/replaceKey.ts:3](https://github.com/canguser/rapidly-utils/blob/47e660a/main/object/replaceKey.ts#L3)
+[object/replaceKey.ts:3](https://github.com/canguser/rapidly-utils/blob/91471f2/main/object/replaceKey.ts#L3)

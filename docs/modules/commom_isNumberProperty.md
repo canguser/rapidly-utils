@@ -26,4 +26,4 @@
 
 #### Defined in
 
-[commom/isNumberProperty.ts:1](https://github.com/canguser/rapidly-utils/blob/47e660a/main/commom/isNumberProperty.ts#L1)
+[commom/isNumberProperty.ts:1](https://github.com/canguser/rapidly-utils/blob/91471f2/main/commom/isNumberProperty.ts#L1)

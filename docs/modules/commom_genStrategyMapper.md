@@ -35,4 +35,4 @@
 
 #### Defined in
 
-[commom/genStrategyMapper.ts:1](https://github.com/canguser/rapidly-utils/blob/47e660a/main/commom/genStrategyMapper.ts#L1)
+[commom/genStrategyMapper.ts:1](https://github.com/canguser/rapidly-utils/blob/91471f2/main/commom/genStrategyMapper.ts#L1)

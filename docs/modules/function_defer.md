@@ -35,4 +35,4 @@
 
 #### Defined in
 
-[function/defer.ts:6](https://github.com/canguser/rapidly-utils/blob/47e660a/main/function/defer.ts#L6)
+[function/defer.ts:6](https://github.com/canguser/rapidly-utils/blob/91471f2/main/function/defer.ts#L6)
