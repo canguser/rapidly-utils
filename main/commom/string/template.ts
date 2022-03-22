@@ -1,6 +1,7 @@
 import { getBindingExpressions } from './getBindingExpressions';
 import { joinWith } from '../../array/joinWith';
 import { getProperty } from '../../object/getProperty';
+import { execExpression } from './execExpression';
 
 export interface TemplateOptions {
     suffix?: string;
@@ -14,24 +15,6 @@ const defaultOptions: TemplateOptions = {
     withFunction: false
 };
 
-function _execExpression(expression: string, context: object): string {
-    if (!expression || !expression.trim()) {
-        return undefined;
-    }
-    try {
-        return new Function('context', `with(context){return (${expression})}`)(
-            new Proxy(context, {
-                has(): boolean {
-                    return true;
-                }
-            })
-        );
-    } catch (e) {
-        console.warn("there's some un-except expression: " + expression, e);
-        return undefined;
-    }
-}
-
 export function template(_self: string, context: object, options?: TemplateOptions): string {
     const opts = Object.assign({}, defaultOptions, options);
     const { prefix, suffix, withFunction } = opts;
@@ -42,7 +25,7 @@ export function template(_self: string, context: object, options?: TemplateOptio
     return joinWith(raws, (index) => {
         const expression = expressions[index] || '';
         if (withFunction) {
-            return _execExpression(expression, context) || '';
+            return execExpression(expression, context) || '';
         }
         return getProperty(context, expression) || '';
     });
