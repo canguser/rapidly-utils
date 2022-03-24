@@ -31,4 +31,4 @@ format the num as currency.
 
 #### Defined in
 
-[number/convertCurrency.ts:9](https://github.com/canguser/rapidly-utils/blob/91471f2/main/number/convertCurrency.ts#L9)
+[number/convertCurrency.ts:9](https://github.com/canguser/rapidly-utils/blob/a270d22/main/number/convertCurrency.ts#L9)

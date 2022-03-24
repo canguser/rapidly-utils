@@ -32,4 +32,4 @@
 
 #### Defined in
 
-[commom/fromEntries.ts:1](https://github.com/canguser/rapidly-utils/blob/91471f2/main/commom/fromEntries.ts#L1)
+[commom/fromEntries.ts:1](https://github.com/canguser/rapidly-utils/blob/a270d22/main/commom/fromEntries.ts#L1)

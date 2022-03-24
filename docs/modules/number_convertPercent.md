@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[number/convertPercent.ts:1](https://github.com/canguser/rapidly-utils/blob/91471f2/main/number/convertPercent.ts#L1)
+[number/convertPercent.ts:1](https://github.com/canguser/rapidly-utils/blob/a270d22/main/number/convertPercent.ts#L1)
