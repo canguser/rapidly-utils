@@ -23,7 +23,7 @@
 
 #### Defined in
 
-[array/trim.ts:4](https://github.com/canguser/rapidly-utils/blob/a270d22/main/array/trim.ts#L4)
+[array/trim.ts:4](https://github.com/canguser/rapidly-utils/blob/fa1848d/main/array/trim.ts#L4)
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-[array/trim.ts:9](https://github.com/canguser/rapidly-utils/blob/a270d22/main/array/trim.ts#L9)
+[array/trim.ts:9](https://github.com/canguser/rapidly-utils/blob/fa1848d/main/array/trim.ts#L9)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[array/trim.ts:8](https://github.com/canguser/rapidly-utils/blob/a270d22/main/array/trim.ts#L8)
+[array/trim.ts:8](https://github.com/canguser/rapidly-utils/blob/fa1848d/main/array/trim.ts#L8)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[array/trim.ts:5](https://github.com/canguser/rapidly-utils/blob/a270d22/main/array/trim.ts#L5)
+[array/trim.ts:5](https://github.com/canguser/rapidly-utils/blob/fa1848d/main/array/trim.ts#L5)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[array/trim.ts:6](https://github.com/canguser/rapidly-utils/blob/a270d22/main/array/trim.ts#L6)
+[array/trim.ts:6](https://github.com/canguser/rapidly-utils/blob/fa1848d/main/array/trim.ts#L6)
 
 ___
 
@@ -73,4 +73,4 @@ ___
 
 #### Defined in
 
-[array/trim.ts:7](https://github.com/canguser/rapidly-utils/blob/a270d22/main/array/trim.ts#L7)
+[array/trim.ts:7](https://github.com/canguser/rapidly-utils/blob/fa1848d/main/array/trim.ts#L7)

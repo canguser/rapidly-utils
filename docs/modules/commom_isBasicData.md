@@ -26,4 +26,4 @@
 
 #### Defined in
 
-[commom/isBasicData.ts:1](https://github.com/canguser/rapidly-utils/blob/a270d22/main/commom/isBasicData.ts#L1)
+[commom/isBasicData.ts:1](https://github.com/canguser/rapidly-utils/blob/fa1848d/main/commom/isBasicData.ts#L1)

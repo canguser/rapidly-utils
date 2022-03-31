@@ -26,4 +26,4 @@
 
 #### Defined in
 
-[commom/randomId.ts:1](https://github.com/canguser/rapidly-utils/blob/a270d22/main/commom/randomId.ts#L1)
+[commom/randomId.ts:1](https://github.com/canguser/rapidly-utils/blob/fa1848d/main/commom/randomId.ts#L1)
