@@ -1,12 +1,13 @@
 {
     "name": "@rapidly/utils",
-    "version": "2.0.0-beta8",
+    "version": "2.0.0-beta9",
     "main": "lib/index.js",
     "license": "MIT",
     "scripts": {
         "publish-pacakge": "yarn run test && yarn run build && yarn run gen-docs && yarn publish --access public --tag latest --new-version $npm_package_version",
         "publish-beta-pacakge": "yarn run test && yarn run build && yarn run gen-docs && yarn publish --access public --tag beta --new-version $npm_package_version",
         "build": "yarn run tsc:rebuild",
+        "publish-beta-no-confirm": "yarn publish --access public --tag beta --new-version $npm_package_version",
         "tsc:rebuild": "yarn run tsc:clean && yarn run tsc:build",
         "tsc:build": "tsc -b tsconfig-cjs.json tsconfig.json",
         "tsc:watch": "tsc -b tsconfig-cjs.json tsconfig.json --watch",

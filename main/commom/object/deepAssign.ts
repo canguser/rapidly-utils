@@ -10,10 +10,14 @@ export interface DeepAssignOptions {
 
 function _deepAssign<T extends object, F extends object>(
     target: T,
-    origin: F,
+    origin?: F,
     options?: DeepAssignOptions,
     _parentStack: { target: object; origin: object }[] = []
 ): T & F {
+    if (origin == null) {
+        return target as T & F;
+    }
+
     const { ignoreUndefined = false, ignoreNull = false, useSymbol = false, useNonenumerable = false } = options || {};
 
     for (let key of getKeys(origin, useSymbol, useNonenumerable)) {
