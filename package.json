@@ -1,6 +1,6 @@
 {
     "name": "@rapidly/utils",
-    "version": "2.0.0-beta9",
+    "version": "2.0.0-beta11",
     "main": "lib/index.js",
     "license": "MIT",
     "scripts": {

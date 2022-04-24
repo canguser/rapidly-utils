@@ -6,6 +6,8 @@ export interface DeepAssignOptions {
     ignoreNull?: boolean;
     useSymbol?: boolean;
     useNonenumerable?: boolean;
+    integralClasses?: any[] | (() => any[]);
+    integralObjects?: any[] | (() => any[]);
 }
 
 function _deepAssign<T extends object, F extends object>(
@@ -18,9 +20,24 @@ function _deepAssign<T extends object, F extends object>(
         return target as T & F;
     }
 
-    const { ignoreUndefined = false, ignoreNull = false, useSymbol = false, useNonenumerable = false } = options || {};
+    let {
+        ignoreUndefined = false,
+        ignoreNull = false,
+        useSymbol = false,
+        useNonenumerable = false,
+        integralClasses = [],
+        integralObjects = []
+    } = options || {};
 
-    for (let key of getKeys(origin, useSymbol, useNonenumerable)) {
+    if (typeof integralClasses === 'function') {
+        options.integralClasses = integralClasses = integralClasses() || [];
+    }
+
+    if (typeof integralObjects === 'function') {
+        options.integralObjects = integralObjects = integralObjects() || [];
+    }
+
+    loop: for (let key of getKeys(origin, useSymbol, useNonenumerable)) {
         const _value = origin[key];
         if (ignoreUndefined && _value === undefined) {
             continue;
@@ -32,6 +49,17 @@ function _deepAssign<T extends object, F extends object>(
             target[key] = _value;
             continue;
         }
+        for (let _class of integralClasses) {
+            if (_value instanceof _class) {
+                target[key] = _value;
+                continue loop;
+            }
+        }
+        if (integralObjects.includes(_value)) {
+            target[key] = _value;
+            continue;
+        }
+
         if (typeof _value === 'object') {
             if (!target[key]) {
                 target[key] = Array.isArray(_value) ? [] : {};

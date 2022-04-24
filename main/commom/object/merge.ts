@@ -1,4 +1,23 @@
-import { deepAssign } from './deepAssign';
+import { deepAssign, DeepAssignOptions } from './deepAssign';
+
+export interface MergeOptions extends DeepAssignOptions {}
+
+const defaultOptions: MergeOptions = {
+    ignoreUndefined: true
+};
+
+export function configureMerge(options: MergeOptions = {}) {
+    return function <T extends object, F extends object>(target: T, ...origins: F[]): T & F {
+        return origins.reduce<T & F>(
+            (result, origin) =>
+                deepAssign(result, origin, {
+                    ...defaultOptions,
+                    ...options
+                }),
+            target as T & F
+        );
+    };
+}
 
 /**
  * Merge origin objects to target object.
@@ -8,12 +27,4 @@ import { deepAssign } from './deepAssign';
  * @param target
  * @param origins
  */
-export function merge<T extends object, F extends object>(target: T, ...origins: F[]): T & F {
-    return origins.reduce<T & F>(
-        (result, origin) =>
-            deepAssign(result, origin, {
-                ignoreUndefined: true
-            }),
-        target as T & F
-    );
-}
+export const merge: <T extends object, F extends object>(target: T, ...origins: F[]) => T & F = configureMerge();
