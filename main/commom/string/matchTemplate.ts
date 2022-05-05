@@ -35,8 +35,8 @@ export function matchTemplate<T extends object>(
         return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     };
     const templateReg = escapeRegExp(template(templateStr, orderContext, options)).replace(/\x02/g, '(.*)');
-    const reg = new RegExp(`^${templateReg}$`, 'g');
-    const matches = [..._self.matchAll(reg)][0] || [];
+    const reg = new RegExp(`^${templateReg}$`);
+    const matches = _self.match(reg) || [];
     const result = {};
     if (matches.length > 0) {
         for (let i = 0; i < keys.length; i++) {

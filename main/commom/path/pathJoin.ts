@@ -1,29 +1,38 @@
-import { getHostUrl } from '../url/getHostUrl';
+function getPathSplits(path?: string, separator = '/'): string[] {
+    if (path == null || path.trim() === '') return [];
+    return path
+        .split(separator)
+        .map((part) => part.trim())
+        .filter((part, i) => part.length > 0 || i === 0);
+}
 
-export function pathJoin(url: string, toPath: string | string[], split = '/') {
-    const host = getHostUrl(url);
-    if (/[a-z0-9]+:\/\/[^/]+$/.test(url)) {
-        return url;
-    }
-    if (typeof toPath === 'string') {
-        const toPathHost = getHostUrl(toPath);
-        console.log(toPathHost);
-        return pathJoin(url, toPath.replace(toPathHost, '').split(split), split);
-    }
-    if (toPath[0] === '') {
-        url = host;
-    }
-    for (const p of toPath) {
-        if (p === '.') {
-            continue;
+export function pathJoin(path: string, toPath?: string | string[], separator = '/') {
+    if (typeof toPath === 'string' || toPath == null) {
+        const originPathSplits = getPathSplits(path, separator);
+        const toPathSplits = getPathSplits(toPath as string, separator);
+        for (let i = 0; i < toPathSplits.length; i++) {
+            const part = toPathSplits[i];
+            if (part === '') {
+                originPathSplits.splice(0, originPathSplits.length, '');
+                continue;
+            }
+            if (part === '..') {
+                const oPart = originPathSplits.pop();
+                if (oPart === '.' || oPart === '..') {
+                    originPathSplits.push(oPart, part);
+                }
+                if (originPathSplits.length === 0) {
+                    originPathSplits.push('');
+                }
+                continue;
+            }
+            if (part !== '.') {
+                originPathSplits.push(part);
+            }
         }
-        if (p === '..') {
-            url = host + (url.replace(host, '').replace(/\/[^\/]+$/, ''));
-            continue;
-        }
-        if (p) {
-            url += split + p;
-        }
+        return originPathSplits.join(separator) || '/';
     }
-    return url;
+    if (Array.isArray(toPath)) {
+        return toPath.reduce((path, part) => pathJoin(path, part, separator), path);
+    }
 }

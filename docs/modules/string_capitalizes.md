@@ -26,4 +26,4 @@
 
 #### Defined in
 
-[string/capitalizes.ts:1](https://github.com/canguser/rapidly-utils/blob/fb9ea1f/main/string/capitalizes.ts#L1)
+[string/capitalizes.ts:1](https://github.com/canguser/rapidly-utils/blob/4eb51b4/main/string/capitalizes.ts#L1)

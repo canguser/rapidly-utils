@@ -20,4 +20,4 @@
 
 #### Defined in
 
-[prototype/applyString.ts:5](https://github.com/canguser/rapidly-utils/blob/fb9ea1f/main/prototype/applyString.ts#L5)
+[prototype/applyString.ts:5](https://github.com/canguser/rapidly-utils/blob/4eb51b4/main/prototype/applyString.ts#L5)
