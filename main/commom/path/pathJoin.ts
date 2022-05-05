@@ -33,6 +33,6 @@ export function pathJoin(path: string, toPath?: string | string[], separator = '
         return originPathSplits.join(separator) || '/';
     }
     if (Array.isArray(toPath)) {
-        return toPath.reduce((path, part) => pathJoin(path, part, separator), path);
+        return toPath.reduce((path, part) => pathJoin(path, part, separator), pathJoin(path, '', separator));
     }
 }

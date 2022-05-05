@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[function/wrap.ts:1](https://github.com/canguser/rapidly-utils/blob/4eb51b4/main/function/wrap.ts#L1)
+[function/wrap.ts:1](https://github.com/canguser/rapidly-utils/blob/9cbb270/main/function/wrap.ts#L1)

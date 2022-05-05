@@ -26,4 +26,4 @@
 
 #### Defined in
 
-[commom/toBoolean.ts:1](https://github.com/canguser/rapidly-utils/blob/4eb51b4/main/commom/toBoolean.ts#L1)
+[commom/toBoolean.ts:1](https://github.com/canguser/rapidly-utils/blob/9cbb270/main/commom/toBoolean.ts#L1)

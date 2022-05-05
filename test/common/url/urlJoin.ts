@@ -21,6 +21,11 @@ describe('urlJoin', () => {
         expect(urlJoin(origin, '/api/v1/users', '../', '/asdf')).toBe(origin + '/asdf');
         expect(urlJoin(origin, '/api/v1/users', '../', './asdf')).toBe(origin + '/asdf');
         expect(urlJoin(origin, '/api/v1/users', '../../../../../')).toBe(origin + '/');
+    });
 
+    it('should join url paths - 02', () => {
+        const origin = 'http://localhost:8080';
+        expect(urlJoin(origin + '//fasd')).toBe(origin + '/fasd');
+        expect(urlJoin('//fasd')).toBe('/fasd');
     });
 });
