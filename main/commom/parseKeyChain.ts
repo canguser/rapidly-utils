@@ -6,7 +6,7 @@ function parseBracket(str) {
     const { raws, expressions } = getBindingExpressions(str, '[', ']');
     const result = [...raws];
     expressions.forEach((expression, index) => {
-        result.splice(2 * index + 1, 0, expression);
+        result.splice(2 * index + 1, 0, expression || '[]');
     });
     return result.filter((r) => r);
 }

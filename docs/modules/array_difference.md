@@ -33,4 +33,4 @@
 
 #### Defined in
 
-[array/difference.ts:1](https://github.com/canguser/rapidly-utils/blob/9cbb270/main/array/difference.ts#L1)
+[array/difference.ts:1](https://github.com/canguser/rapidly-utils/blob/7d8bf42/main/array/difference.ts#L1)

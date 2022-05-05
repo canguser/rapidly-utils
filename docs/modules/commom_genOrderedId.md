@@ -20,4 +20,4 @@
 
 #### Defined in
 
-[commom/genOrderedId.ts:3](https://github.com/canguser/rapidly-utils/blob/9cbb270/main/commom/genOrderedId.ts#L3)
+[commom/genOrderedId.ts:3](https://github.com/canguser/rapidly-utils/blob/7d8bf42/main/commom/genOrderedId.ts#L3)

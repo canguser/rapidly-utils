@@ -4,6 +4,10 @@
 
 ## Table of contents
 
+### Interfaces
+
+- [SetPropertyOptions](../interfaces/object_setProperty.SetPropertyOptions.md)
+
 ### Functions
 
 - [setProperty](object_setProperty.md#setproperty)
@@ -12,7 +16,7 @@
 
 ### setProperty
 
-▸ **setProperty**(`_self`, `propertyName`, `value`): `boolean`
+▸ **setProperty**(`_self`, `propertyName`, `value`, `options?`): `boolean`
 
 Set the object property, it's support to using link property name like: a.b.c.d.e.f
 
@@ -23,6 +27,7 @@ Set the object property, it's support to using link property name like: a.b.c.d.
 | `_self` | `any` |
 | `propertyName` | `any`[] \| `string` |
 | `value` | `any` |
+| `options?` | [`SetPropertyOptions`](../interfaces/object_setProperty.SetPropertyOptions.md) |
 
 #### Returns
 
@@ -30,4 +35,4 @@ Set the object property, it's support to using link property name like: a.b.c.d.
 
 #### Defined in
 
-[object/setProperty.ts:11](https://github.com/canguser/rapidly-utils/blob/9cbb270/main/object/setProperty.ts#L11)
+[object/setProperty.ts:16](https://github.com/canguser/rapidly-utils/blob/7d8bf42/main/object/setProperty.ts#L16)
