@@ -53,6 +53,18 @@ describe('test string template func', () => {
         expect(result).toBe('hello {{!name}\\}, age 18');
     });
 
+    it('should works for escaped code 5', function() {
+        const str = 'hello {{!name}\\}, nno: {dasd}, age {{!age}}, nno: {{!nno}}';
+        const result = template(str, { name: 'world', age: undefined, nno: null }, { prefix: '{{!', suffix: '}}' });
+        expect(result).toBe('hello {{!name}\\}, nno: {dasd}, age , nno: ');
+    });
+
+    it('should works for escaped code 6', function() {
+        const str = 'hello {{!name';
+        const result = template(str, { name: 'world', age: undefined, nno: null }, { prefix: '{{!', suffix: '}}' });
+        expect(result).toBe('hello {{!name');
+    });
+
     it('should using inside prefix and suffix', function() {
         const str = 'hello {{name}}, age {{age}}';
         const result = template(str, { name: 'world', age: 18 });

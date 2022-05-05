@@ -20,4 +20,4 @@
 
 #### Defined in
 
-[prototype/applyFunction.ts:6](https://github.com/canguser/rapidly-utils/blob/e56fad9/main/prototype/applyFunction.ts#L6)
+[prototype/applyFunction.ts:6](https://github.com/canguser/rapidly-utils/blob/fb9ea1f/main/prototype/applyFunction.ts#L6)

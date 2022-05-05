@@ -1,5 +1,3 @@
-import { joinWith } from '../../array/joinWith';
-
 export function replaceAll(
     str: string,
     search: string,
@@ -19,7 +17,7 @@ export function replaceAll(
         }
         return indexList
             .reduce(
-                ({ strList, extraSize }, strIndex, index) => {
+                ({ strList, extraSize }, strIndex) => {
                     const replacementStr = replacement(search, strIndex, str);
                     strList.splice(strIndex + extraSize, search.length, replacementStr);
                     return { strList, extraSize: extraSize + replacementStr.length - search.length };

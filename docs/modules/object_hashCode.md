@@ -12,7 +12,7 @@
 
 ### hashCode
 
-▸ **hashCode**(`obj`): `any`
+▸ **hashCode**(`obj`): `string` \| `number`
 
 #### Parameters
 
@@ -22,8 +22,8 @@
 
 #### Returns
 
-`any`
+`string` \| `number`
 
 #### Defined in
 
-[object/hashCode.ts:1](https://github.com/canguser/rapidly-utils/blob/e56fad9/main/object/hashCode.ts#L1)
+[object/hashCode.ts:3](https://github.com/canguser/rapidly-utils/blob/fb9ea1f/main/object/hashCode.ts#L3)
