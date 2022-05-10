@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[commom/unique.ts:25](https://github.com/canguser/rapidly-utils/blob/2ba56f7/main/commom/unique.ts#L25)
+[commom/unique.ts:25](https://github.com/canguser/rapidly-utils/blob/4b3960b/main/commom/unique.ts#L25)
 
 ▸ **unique**<`T`\>(`arr`): `T`[]
 
@@ -54,4 +54,4 @@
 
 #### Defined in
 
-[commom/unique.ts:26](https://github.com/canguser/rapidly-utils/blob/2ba56f7/main/commom/unique.ts#L26)
+[commom/unique.ts:26](https://github.com/canguser/rapidly-utils/blob/4b3960b/main/commom/unique.ts#L26)

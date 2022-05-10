@@ -18,4 +18,4 @@
 
 #### Defined in
 
-[object/setProperty.ts:5](https://github.com/canguser/rapidly-utils/blob/2ba56f7/main/object/setProperty.ts#L5)
+[object/setProperty.ts:5](https://github.com/canguser/rapidly-utils/blob/4b3960b/main/object/setProperty.ts#L5)

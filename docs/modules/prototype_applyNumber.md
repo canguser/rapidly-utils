@@ -20,4 +20,4 @@
 
 #### Defined in
 
-[prototype/applyNumber.ts:5](https://github.com/canguser/rapidly-utils/blob/2ba56f7/main/prototype/applyNumber.ts#L5)
+[prototype/applyNumber.ts:5](https://github.com/canguser/rapidly-utils/blob/4b3960b/main/prototype/applyNumber.ts#L5)

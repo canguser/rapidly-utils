@@ -33,4 +33,4 @@
 
 #### Defined in
 
-[array/groupBy.ts:3](https://github.com/canguser/rapidly-utils/blob/2ba56f7/main/array/groupBy.ts#L3)
+[array/groupBy.ts:3](https://github.com/canguser/rapidly-utils/blob/4b3960b/main/array/groupBy.ts#L3)

@@ -4,8 +4,12 @@ import { matchUrlTemplate } from '../../../main/commom/url/matchUrlTemplate';
 describe('test string match url template func', () => {
     it('should simply run - 01', () => {
         expect(matchUrlTemplate('/Name/Luoli/Age/10', 'Name/{name}/Age/{age}')).toEqual({
-            name: 'Luoli',
-            age: '10'
+            partial: false,
+            match: '/Name/Luoli/Age/10',
+            params: {
+                name: 'Luoli',
+                age: '10'
+            }
         });
     });
     it('should convert type', function () {
@@ -18,9 +22,13 @@ describe('test string match url template func', () => {
                 }
             })
         ).toEqual({
-            name: 'Luoli',
-            age: 10,
-            women: true
+            partial: false,
+            match: '/Name/Luoli/Age/10/IsWoman/true',
+            params: {
+                name: 'Luoli',
+                age: 10,
+                women: true
+            }
         });
     });
     it('test not match', ()=>{
@@ -44,4 +52,16 @@ describe('test string match url template func', () => {
             })
         ).toEqual(undefined);
     })
+    it('should match prefix', function() {
+        expect(matchUrlTemplate('/Name/lili/age/20/id/asdas', '/Name/{name}/age/{age}',{
+            matchPrefix: true
+        })).toEqual({
+            partial: true,
+            match: '/Name/lili/age/20',
+            params: {
+                name: 'lili',
+                age: '20'
+            }
+        });
+    });
 });
