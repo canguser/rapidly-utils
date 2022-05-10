@@ -20,4 +20,4 @@
 
 #### Defined in
 
-[prototype/applyPromise.ts:3](https://github.com/canguser/rapidly-utils/blob/7d8bf42/main/prototype/applyPromise.ts#L3)
+[prototype/applyPromise.ts:3](https://github.com/canguser/rapidly-utils/blob/2ba56f7/main/prototype/applyPromise.ts#L3)

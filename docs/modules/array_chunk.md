@@ -36,4 +36,4 @@ If array can't be split evenly, the final chunk will be the remaining elements.
 
 #### Defined in
 
-[array/chunk.ts:7](https://github.com/canguser/rapidly-utils/blob/7d8bf42/main/array/chunk.ts#L7)
+[array/chunk.ts:7](https://github.com/canguser/rapidly-utils/blob/2ba56f7/main/array/chunk.ts#L7)

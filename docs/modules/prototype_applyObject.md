@@ -20,4 +20,4 @@
 
 #### Defined in
 
-[prototype/applyObject.ts:9](https://github.com/canguser/rapidly-utils/blob/7d8bf42/main/prototype/applyObject.ts#L9)
+[prototype/applyObject.ts:9](https://github.com/canguser/rapidly-utils/blob/2ba56f7/main/prototype/applyObject.ts#L9)

@@ -35,4 +35,4 @@ Set the object property, it's support to using link property name like: a.b.c.d.
 
 #### Defined in
 
-[object/setProperty.ts:16](https://github.com/canguser/rapidly-utils/blob/7d8bf42/main/object/setProperty.ts#L16)
+[object/setProperty.ts:16](https://github.com/canguser/rapidly-utils/blob/2ba56f7/main/object/setProperty.ts#L16)
