@@ -17,8 +17,12 @@ export function matchUrlTemplate<T extends object>(
     options?: MatchUrlTemplateOptions<T>
 ): UrlMatchResult<T> {
     const { matchPrefix = false } = options || {};
-    const toMatchParts = formatUrl(_self || '').split('/');
-    const templateParts = formatUrl(templateUrlStr || '').split('/');
+    const toMatchParts = formatUrl(_self || '')
+        .split('/')
+        .filter((p) => p !== '');
+    const templateParts = formatUrl(templateUrlStr || '')
+        .split('/')
+        .filter((p) => p !== '');
     const isPartial = templateParts.length < toMatchParts.length && matchPrefix;
     if (templateParts.length !== toMatchParts.length && !isPartial) {
         return undefined;
@@ -33,16 +37,14 @@ export function matchUrlTemplate<T extends object>(
     for (let i = 0; i < templateParts.length; i++) {
         const templatePart = templateParts[i];
         const toMatchPart = toMatchParts[i];
-        if (templatePart && toMatchPart) {
-            const matchResult = matchTemplate(toMatchPart, templatePart, options);
-            if (!matchResult) {
-                return undefined;
-            }
-            Object.assign(result.params, matchResult);
+        const matchResult = matchTemplate(toMatchPart, templatePart, options);
+        if (!matchResult) {
+            return undefined;
         }
+        Object.assign(result.params, matchResult);
         matchParts.push(toMatchPart);
     }
 
-    result.match = matchParts.join('/');
+    result.match = formatUrl(matchParts.join('/'));
     return result;
 }

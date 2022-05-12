@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[array/contains.ts:1](https://github.com/canguser/rapidly-utils/blob/4b3960b/main/array/contains.ts#L1)
+[array/contains.ts:1](https://github.com/canguser/rapidly-utils/blob/d8d6c14/main/array/contains.ts#L1)

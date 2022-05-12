@@ -63,5 +63,20 @@ describe('test string match url template func', () => {
                 age: '20'
             }
         });
+        expect(matchUrlTemplate('/home/test', '/home',{
+            matchPrefix: true
+        })).toEqual({
+            partial: true,
+            match: '/home',
+            params: {}
+        });
+        expect(matchUrlTemplate('/home', '/',{
+            matchPrefix: true
+        })).toEqual({
+            partial: true,
+            match: '/',
+            params: {}
+        });
+
     });
 });
