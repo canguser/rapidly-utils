@@ -28,4 +28,4 @@ Parse the property name to name array.
 
 #### Defined in
 
-[commom/parseKeyChain.ts:18](https://github.com/canguser/rapidly-utils/blob/d8d6c14/main/commom/parseKeyChain.ts#L18)
+[commom/parseKeyChain.ts:18](https://github.com/canguser/rapidly-utils/blob/bc4b333/main/commom/parseKeyChain.ts#L18)

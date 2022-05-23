@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[commom/versionToNumber.ts:1](https://github.com/canguser/rapidly-utils/blob/d8d6c14/main/commom/versionToNumber.ts#L1)
+[commom/versionToNumber.ts:1](https://github.com/canguser/rapidly-utils/blob/bc4b333/main/commom/versionToNumber.ts#L1)

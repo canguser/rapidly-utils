@@ -1,12 +1,14 @@
-export function waitImmediately(context?: any, apiName: string = '_waitImmediatelyPS') {
-    if (!context[apiName]) {
-        context[apiName] = new Promise(resolve => {
-            setTimeout(() => {
-                context[apiName] = undefined;
-                delete context[apiName];
-                resolve(undefined);
-            }, 0);
-        });
+import { wait } from './wait';
+
+export interface WaitImmediatelyOptions {
+    type: 'timeout' | 'promise';
+}
+
+export function waitImmediately<T>(payload?: T, options?: WaitImmediatelyOptions): Promise<T> {
+    const { type = 'timeout' } = options || {};
+    if (type === 'timeout') {
+        return wait(0, payload);
+    } else {
+        return Promise.resolve(payload);
     }
-    return context[apiName];
 }

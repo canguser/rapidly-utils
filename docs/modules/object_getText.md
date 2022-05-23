@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[object/getText.ts:3](https://github.com/canguser/rapidly-utils/blob/d8d6c14/main/object/getText.ts#L3)
+[object/getText.ts:3](https://github.com/canguser/rapidly-utils/blob/bc4b333/main/object/getText.ts#L3)

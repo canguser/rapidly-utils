@@ -36,4 +36,4 @@ Removes all given values from array.
 
 #### Defined in
 
-[array/pull.ts:7](https://github.com/canguser/rapidly-utils/blob/d8d6c14/main/array/pull.ts#L7)
+[array/pull.ts:7](https://github.com/canguser/rapidly-utils/blob/bc4b333/main/array/pull.ts#L7)

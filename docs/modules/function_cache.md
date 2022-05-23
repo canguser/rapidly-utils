@@ -34,4 +34,4 @@ Cache the result of a function.
 
 #### Defined in
 
-[function/cache.ts:7](https://github.com/canguser/rapidly-utils/blob/d8d6c14/main/function/cache.ts#L7)
+[function/cache.ts:7](https://github.com/canguser/rapidly-utils/blob/bc4b333/main/function/cache.ts#L7)

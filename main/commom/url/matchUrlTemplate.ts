@@ -45,6 +45,13 @@ export function matchUrlTemplate<T extends object>(
         matchParts.push(toMatchPart);
     }
 
+    Object.keys(result.params).forEach((key) => {
+        const value = result.params[key];
+        if (typeof value === 'string') {
+            result.params[key] = decodeURIComponent(result.params[key]);
+        }
+    });
+
     result.match = formatUrl(matchParts.join('/'));
     return result;
 }
