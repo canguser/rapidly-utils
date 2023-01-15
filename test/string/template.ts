@@ -70,4 +70,12 @@ describe('test string template func', () => {
         const result = template(str, { name: 'world', age: 18 });
         expect(result).toBe('hello {world}, age {18}');
     });
+
+    // it('should works for object number index', function() {
+    //     const str = 'hello {0}, age {1}';
+    //     const result = template(str, { ...['world',18], a:'?' }, {
+    //         withFunction: true
+    //     });
+    //     expect(result).toBe('hello world, age 18');
+    // })
 });

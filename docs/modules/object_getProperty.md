@@ -36,4 +36,4 @@ Get the object property, it's support to using link property name like: a.b.c.d.
 
 #### Defined in
 
-[object/getProperty.ts:10](https://github.com/canguser/rapidly-utils/blob/bc4b333/main/object/getProperty.ts#L10)
+[object/getProperty.ts:10](https://github.com/canguser/rapidly-utils/blob/af8066a/main/object/getProperty.ts#L10)

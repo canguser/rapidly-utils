@@ -1,95 +1,90 @@
-import { Method, Task, TaskLike } from '../types/types';
+import { Task, TaskLike } from '../types/types';
+import { wait } from './wait';
 
-const execQueueMap = new Map<any, Task[]>();
+// 执行区间
+const execScope = new Map<any, Promise<any>>();
+// 同步队列
 const syncQueueMap = new Map<any, Task[]>();
 
-function isTask(task: any) {
+function isTask(task: any): task is TaskLike {
     return typeof task === 'function' || typeof task.task === 'function';
 }
 
-function executeTasks(execQueue: Task[]) {
-    const promises = Promise.all(execQueue.map(task => {
-        if (typeof task.task === 'function') {
-            const args = Array.isArray(task.args) ? task.args : [task.args];
-            return task.task.apply(task.context, args);
+function toTask(task: TaskLike): Task{
+    if (isTask(task)){
+        if (typeof task === 'function'){
+            return { task };
         }
-    }));
-    execQueue.splice(0);
-    return promises;
-}
-
-async function startExecSyncQueue(identity: any, execSize = 1) {
-
-    if (!syncQueueMap.has(identity)) {
-        return;
+        return task;
     }
+    return null
+}
 
-    let result;
-    await Promise.resolve();
-    const waitQueue = syncQueueMap.get(identity);
+function execTasks(tasks: Task[]) {
+    return Promise.all(tasks.map((task) => {
+        return task.task.apply(task.context||this,task.args|| [])
+    })).catch(e=>{
+        console.warn('async queue error: ', e);
+    });
+}
 
-    while (waitQueue.length > 0) {
-        const execQueue = execQueueMap.get(identity) || [];
-        execQueue.push(...waitQueue.splice(0, execSize));
-        execQueueMap.set(identity, execQueue);
-        const results = await executeTasks(execQueue);
-        result = results[results.length - 1];
+
+function waitingEnterQueue(identity: any, startSizeLimit: number): void {
+    const syncQueue = syncQueueMap.get(identity) || [];
+    let execPromise = execScope.get(identity);
+
+    if (!execPromise){
+        execPromise = execTasks(syncQueue.splice(0, startSizeLimit))
+            .then(()=>{
+                execScope.delete(identity);
+                if (syncQueue.length > 0){
+                    return waitingEnterQueue(identity, startSizeLimit);
+                }
+            });
+        execScope.set(identity, execPromise);
     }
-
-    return result;
 }
 
-function waitTaskExecute(task: Method): { promise: Promise<any>, task: Method } {
-    let resultTask;
-    const pr = new Promise(
-        resolve => {
-            resultTask = async function(...args) {
-                const result = await task.apply(this, args);
-                resolve(result);
-                return result;
-            };
-        }
-    );
-    return {
-        promise: pr,
-        task: resultTask
-    };
-}
-
+export async function asyncQueue(identity: any, startSizeLimit: number, task: TaskLike): Promise<any>
+export async function asyncQueue(identity: any, startSizeLimit: number, ...tasks: TaskLike[]): Promise<[]>
 export async function asyncQueue(identity: any, startSizeLimit: number, ...tasks: TaskLike[]) {
+    // 捕获异步结果
+    const promises = []
+    const realTasks: Task[] = tasks.map(toTask)
+    realTasks.forEach(t=>{
+        if (!t){
+            promises.push(Promise.resolve(null))
+        }
+        const originTask = t.task
+        let onResolve: (result: any)=>any = null
+        promises.push(new Promise((resolve)=>{
+           onResolve = resolve
+        }))
+        t.task = function(...args){
+            return new Promise(resolve => {
+                return Promise.resolve(originTask.apply(this, args)).then((result)=>{
+                    onResolve && onResolve(result)
+                    resolve(result)
+                })
+            })
+        }
+    })
 
-    const existQueue = syncQueueMap.get(identity) || [];
+    // 加入同步队列
+    const taskQueue = syncQueueMap.get(identity) || [];
+    taskQueue.push(...realTasks.filter(t => t));
+    syncQueueMap.set(identity, taskQueue);
 
-    const hasTasks = existQueue.length > 0;
-
-    const taskMappings = tasks.filter(t => isTask(t))
-        .map<Task>(t => {
-            if (typeof t === 'function') {
-                return {
-                    task: t
-                };
-            }
-            return t;
+    if (!execScope.get(identity)){
+        // async waiting
+        wait(0).then(()=>{
+            waitingEnterQueue(identity, startSizeLimit);
         })
-        .map(t => {
-            const { task, promise } = waitTaskExecute(t.task);
-            return {
-                task: {
-                    ...t,
-                    task
-                },
-                promise
-            };
-        });
-
-    existQueue.push(...taskMappings.map<Task>(({ task }) => task));
-
-    if (!hasTasks) {
-        syncQueueMap.set(identity, existQueue);
-        startExecSyncQueue(identity, startSizeLimit);
     }
 
-    const results = await Promise.all(taskMappings.map(({ promise }) => promise));
+    if (promises.length === 1){
+        return promises[0]
+    }
 
-    return results[results.length - 1];
+    return Promise.all(promises)
 }

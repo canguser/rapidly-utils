@@ -61,7 +61,7 @@ describe('common/async/synchronously test', () => {
                     return a;
                 },
                 context: store,
-                args: 2
+                args: [2]
             })
         ]);
         expect(result[0]).toBe(1);

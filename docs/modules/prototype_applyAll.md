@@ -20,4 +20,4 @@
 
 #### Defined in
 
-[prototype/applyAll.ts:8](https://github.com/canguser/rapidly-utils/blob/bc4b333/main/prototype/applyAll.ts#L8)
+[prototype/applyAll.ts:8](https://github.com/canguser/rapidly-utils/blob/af8066a/main/prototype/applyAll.ts#L8)
