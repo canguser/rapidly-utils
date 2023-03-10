@@ -34,4 +34,4 @@
 
 #### Defined in
 
-[object/replaceKeyMap.ts:1](https://github.com/canguser/rapidly-utils/blob/af8066a/main/object/replaceKeyMap.ts#L1)
+[object/replaceKeyMap.ts:1](https://github.com/canguser/rapidly-utils/blob/09ac0e9/main/object/replaceKeyMap.ts#L1)

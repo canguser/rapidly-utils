@@ -20,4 +20,4 @@
 
 #### Defined in
 
-[prototype/applyArray.ts:15](https://github.com/canguser/rapidly-utils/blob/af8066a/main/prototype/applyArray.ts#L15)
+[prototype/applyArray.ts:15](https://github.com/canguser/rapidly-utils/blob/09ac0e9/main/prototype/applyArray.ts#L15)

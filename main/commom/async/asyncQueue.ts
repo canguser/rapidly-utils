@@ -57,14 +57,19 @@ export async function asyncQueue(identity: any, startSizeLimit: number, ...tasks
         }
         const originTask = t.task
         let onResolve: (result: any)=>any = null
-        promises.push(new Promise((resolve)=>{
+        let onReject: (error: any)=>any = null
+        promises.push(new Promise((resolve, reject)=>{
            onResolve = resolve
+           onReject = reject
         }))
         t.task = function(...args){
-            return new Promise(resolve => {
+            return new Promise((resolve, reject) => {
                 return Promise.resolve(originTask.apply(this, args)).then((result)=>{
                     onResolve && onResolve(result)
-                    resolve(result)
+                    return resolve(result)
+                }).catch(e=>{
+                    onReject && onReject(e)
+                    return reject(null)
                 })
             })
         }

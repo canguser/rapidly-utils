@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[function/curry.ts:1](https://github.com/canguser/rapidly-utils/blob/af8066a/main/function/curry.ts#L1)
+[function/curry.ts:1](https://github.com/canguser/rapidly-utils/blob/09ac0e9/main/function/curry.ts#L1)

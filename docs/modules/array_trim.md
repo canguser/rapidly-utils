@@ -31,4 +31,4 @@
 
 #### Defined in
 
-[array/trim.ts:21](https://github.com/canguser/rapidly-utils/blob/af8066a/main/array/trim.ts#L21)
+[array/trim.ts:21](https://github.com/canguser/rapidly-utils/blob/09ac0e9/main/array/trim.ts#L21)

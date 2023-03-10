@@ -79,4 +79,35 @@ describe('common/async/asyncQueue test', () => {
          ])
         expect(results).toEqual([1, 3, 4, 5]);
     });
+    it('should catch inner error', function() {
+        expect.assertions(2);
+        return asyncQueue('test01', 1, async function () {
+            throw new Error('inner error');
+        }, ()=>{
+            expect(true).toBe(true);
+        }).catch(err => {
+            expect(err.message).toBe('inner error');
+        })
+    });
+    it('should catch inner error - 1', async function() {
+        expect.assertions(2);
+        await asyncQueue('test01', 1, async function () {
+            await wait(100)
+            throw new Error('inner error');
+        }).catch(err => {
+            expect(err.message).toBe('inner error');
+        })
+
+        await asyncQueue('test01', 1, async function () {
+            await wait(200)
+            return 0
+        },async function () {
+            await wait(200)
+            return 2
+        }).then(r=>{
+            expect(r).toEqual([0,2]);
+        })
+
+    });
+
 });

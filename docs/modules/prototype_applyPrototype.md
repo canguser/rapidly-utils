@@ -31,4 +31,4 @@
 
 #### Defined in
 
-[prototype/applyPrototype.ts:8](https://github.com/canguser/rapidly-utils/blob/af8066a/main/prototype/applyPrototype.ts#L8)
+[prototype/applyPrototype.ts:8](https://github.com/canguser/rapidly-utils/blob/09ac0e9/main/prototype/applyPrototype.ts#L8)

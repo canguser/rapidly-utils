@@ -26,4 +26,4 @@
 
 #### Defined in
 
-[string/hashCode.ts:1](https://github.com/canguser/rapidly-utils/blob/af8066a/main/string/hashCode.ts#L1)
+[string/hashCode.ts:1](https://github.com/canguser/rapidly-utils/blob/09ac0e9/main/string/hashCode.ts#L1)
